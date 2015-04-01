@@ -8,7 +8,7 @@
 1. java workspace로 사용할 수 있는 algorithms 추가
 2. test quiz 추가
 
-## usuage
+## usage
 
 1. git 설치
 2. git clone https://github.com/pureugong/yungtopia.git
