@@ -5,10 +5,10 @@ import java.util.List;
 
 public class MazeRunner {
 
-	public int[][] MAZE;
-	public int SIZE;
-	public int[] currentLocation;
-	public List<int[]> tracks;
+	private int[][] MAZE;
+	private int SIZE;
+	private int[] currentLocation;
+	private List<int[]> tracks;
 
 	public MazeRunner() {
 		this.MAZE = new int[][] { { 0, 1, 1, 1, 1 }, { 1, 0, 1, 1, 1 },
@@ -19,100 +19,9 @@ public class MazeRunner {
 
 	}
 
-	public int[] up(int[] location) {
-		if (location == null)
-			return null;
-		if (0 < location[0]) {
-			location[0] -= 1;
-			return location;
-		} else {
-			return null;
-		}
-	}
-
-	public int[] down(int[] location) {
-		if (location == null)
-			return null;
-		if (location[0] < this.SIZE) {
-			location[0] += 1;
-			return location;
-		} else {
-			return null;
-		}
-	}
-
-	public int[] left(int[] location) {
-		if (location == null)
-			return null;
-		if (0 < location[1]) {
-			location[1] -= 1;
-			return location;
-		} else {
-			return null;
-		}
-	}
-
-	public int[] right(int[] location) {
-		if (location == null)
-			return null;
-		if (location[1] < this.SIZE) {
-			location[1] += 1;
-			return location;
-		} else {
-			return null;
-		}
-	}
-
-	public void moveUp() {
-		markHere();
-		currentLocation[0] -= 1;
-		checkLocation();
-	}
-
-	public void moveDown() {
-		markHere();
-		currentLocation[0] += 1;
-		checkLocation();
-	}
-
-	public void moveLeft() {
-		markHere();
-		currentLocation[1] -= 1;
-		checkLocation();
-	}
-
-	public void moveRight() {
-		markHere();
-		currentLocation[1] += 1;
-		checkLocation();
-	}
-
-	private void moveRightUp() {
-		markHere();
-		currentLocation[1] += 1;
-		currentLocation[0] -= 1;
-		checkLocation();
-	}
-
-	private void moveLeftUp() {
-		markHere();
-		currentLocation[1] -= 1;
-		currentLocation[0] -= 1;
-		checkLocation();
-	}
-
-	private void moveLeftDown() {
-		markHere();
-		currentLocation[1] -= 1;
-		currentLocation[0] += 1;
-		checkLocation();
-	}
-
-	private void moveRightDown() {
-		markHere();
-		currentLocation[1] += 1;
-		currentLocation[0] += 1;
-		checkLocation();
+	public void checkLocation() {
+		// tracks.add(currentLocation());
+		System.out.print(currentLocation[0] + "" + currentLocation[1] + " ");
 	}
 
 	public void escape() {
@@ -149,10 +58,104 @@ public class MazeRunner {
 		}
 	}
 
-	public void checkLocation() {
-		// tracks.add(currentLocation());
-		System.out.print(currentLocation[0] + "" + currentLocation[1] + " ");
+	// private from here
+
+	private int[] up(int[] location) {
+		if (location == null)
+			return null;
+		if (0 < location[0]) {
+			location[0] -= 1;
+			return location;
+		} else {
+			return null;
+		}
 	}
+
+	private int[] down(int[] location) {
+		if (location == null)
+			return null;
+		if (location[0] < this.SIZE) {
+			location[0] += 1;
+			return location;
+		} else {
+			return null;
+		}
+	}
+
+	private int[] left(int[] location) {
+		if (location == null)
+			return null;
+		if (0 < location[1]) {
+			location[1] -= 1;
+			return location;
+		} else {
+			return null;
+		}
+	}
+
+	private int[] right(int[] location) {
+		if (location == null)
+			return null;
+		if (location[1] < this.SIZE) {
+			location[1] += 1;
+			return location;
+		} else {
+			return null;
+		}
+	}
+
+	private void moveUp() {
+		markHere();
+		currentLocation[0] -= 1;
+		checkLocation();
+	}
+
+	private void moveDown() {
+		markHere();
+		currentLocation[0] += 1;
+		checkLocation();
+	}
+
+	private void moveLeft() {
+		markHere();
+		currentLocation[1] -= 1;
+		checkLocation();
+	}
+
+	private void moveRight() {
+		markHere();
+		currentLocation[1] += 1;
+		checkLocation();
+	}
+
+	private void moveRightUp() {
+		markHere();
+		currentLocation[1] += 1;
+		currentLocation[0] -= 1;
+		checkLocation();
+	}
+
+	private void moveLeftUp() {
+		markHere();
+		currentLocation[1] -= 1;
+		currentLocation[0] -= 1;
+		checkLocation();
+	}
+
+	private void moveLeftDown() {
+		markHere();
+		currentLocation[1] -= 1;
+		currentLocation[0] += 1;
+		checkLocation();
+	}
+
+	private void moveRightDown() {
+		markHere();
+		currentLocation[1] += 1;
+		currentLocation[0] += 1;
+		checkLocation();
+	}
+
 
 	private void markHere() {
 		this.MAZE[currentLocation[0]][currentLocation[1]] = 2;
