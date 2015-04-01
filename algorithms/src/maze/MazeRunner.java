@@ -52,13 +52,15 @@ public class MazeRunner {
 			while (possible(right(up(currentLocation()))))
 				moveRightUp();
 
-			if (currentLocation()[0] == this.SIZE
-					&& currentLocation()[1] == this.SIZE)
-				break;
+			if (isDestination()) break;
 		}
 	}
 
 	// private from here
+
+	private boolean isDestination() {
+		return (this.currentLocation[0] == this.SIZE && this.currentLocation[1] == this.SIZE) ? true : false;
+	}
 
 	private int[] up(int[] location) {
 		if (location == null)
