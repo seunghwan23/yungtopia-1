@@ -8,17 +8,18 @@ public class MazeRunner {
 	private int[][] MAZE;
 	private int SIZE;
 	private int[] currentLocation;
-	private List<int[]> tracks;
+	//private List<int[]> tracks;
 
 	public MazeRunner() {
 		this.MAZE = new int[][] { { 0, 1, 1, 1, 1 }, { 1, 0, 1, 1, 1 },
 				{ 0, 1, 1, 1, 1 }, { 0, 1, 1, 1, 1 }, { 0, 0, 0, 0, 0 } };
 		this.SIZE = this.MAZE.length - 1;
 		this.currentLocation = new int[] { 0, 0 };
-		tracks = new ArrayList<int[]>();
+		//tracks = new ArrayList<int[]>();
 
 	}
-
+	
+	
 	public void checkLocation() {
 		// tracks.add(currentLocation());
 		System.out.print(currentLocation[0] + "" + currentLocation[1] + " ");
